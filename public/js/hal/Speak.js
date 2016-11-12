@@ -1,6 +1,6 @@
 'use strict';
 
-const VOICE_NAME = 'Samantha'; //Zarvox, Samantha, Daniel, Fiona, Karen
+const VOICE_NAME = 'Google UK English Female'; //Zarvox, Samantha, Daniel, Fiona, Karen
 const VOICE_RATE = 0.7;
 
 class Speak {
