@@ -31,7 +31,9 @@ class Hal {
             text: humanText
           })
         }).then((response) => {
-          this.writeToChat(response.text(), 'bot');
+          return response.text();
+        }).then((text) => {
+          this.startTalking(text, 'bot');
         })
       })
       .catch((error) => {
