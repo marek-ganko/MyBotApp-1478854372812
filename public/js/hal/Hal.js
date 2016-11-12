@@ -6,12 +6,12 @@ class Hal {
   }
 
   start() {
-    this.speak.setVoice().then(this.startTalking.bind(this));
+    this.speak.setVoice().then(this.startTalking.bind(this, 'Hello there'));
   }
 
-  startTalking() {
-    this.writeToChat('Hello there', 'bot');
-    this.speak.say('Hello there').then(this.startListening.bind(this));
+  startTalking(text) {
+    this.writeToChat(text, 'bot');
+    this.speak.say(text).then(this.startListening.bind(this));
   }
 
   startListening() {
