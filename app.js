@@ -37,19 +37,17 @@ app.use(express.static(__dirname + '/public'));
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
-var context = {};
-
 app.post('/processText', function(req, res) {
   console.log(req.body);
   conversation.message({
 	  workspace_id: '71c72219-ab8f-465d-bebb-30886247915f',
 	  input: {'text': req.body.text},
-	  context: context
+	  context: req.body.context
 	},  function(err, response) {
 	  if (err) {
 		console.log('error:', err);
 	  } else {
-		res.send(response.output.text[0]);
+		res.send(JSON.stringify(response));
 		console.log(JSON.stringify(response, null, 2));
 	  }
 	});

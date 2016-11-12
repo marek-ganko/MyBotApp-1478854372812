@@ -3,6 +3,7 @@
 class Hal {
   constructor() {
     this.speak = new Speak();
+    this.lastContext = {};
   }
 
   start() {
@@ -28,12 +29,15 @@ class Hal {
             'Content-Type': 'application/json'
           }),
           body: JSON.stringify({
-            text: humanText
+            text: humanText,
+            context: this.lastContext
           })
         }).then((response) => {
-          return response.text();
-        }).then((text) => {
-          this.startTalking(text, 'bot');
+          return response.json();
+        }).then((json) => {
+          console.log(json);
+          this.lastContext = json.context;
+          this.startTalking(json.output.text.pop(), 'bot');
         })
       })
       .catch((error) => {
