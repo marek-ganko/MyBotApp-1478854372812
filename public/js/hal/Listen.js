@@ -14,7 +14,7 @@ class Listen {
 
     return new Promise((resolve, reject) => {
       this.recognition.start();
-      console.log('zaczynam');
+      console.log('Speak now!');
       this.recognition.addEventListener('result', (event) => {
         console.log('Results: ', event.results);
         for (var i = event.resultIndex; i < event.results.length; i++) {

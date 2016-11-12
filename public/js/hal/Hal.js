@@ -11,11 +11,22 @@ class Hal {
   }
 
   startTalking(text) {
+    this.changeHalToActive(true);
     this.writeToChat(text, 'bot');
     this.speak.say(text).then(this.startListening.bind(this));
   }
 
+  changeHalToActive(active = true) {
+    const div = document.getElementById('hal');
+    if (active) {
+      div.classList.add('active');
+    } else {
+      div.classList.remove('active');
+    }
+  }
+
   startListening() {
+    this.changeHalToActive(false);
     this.listen = new Listen();
     return this.listen.start()
       .then((humanText) => {
@@ -41,8 +52,8 @@ class Hal {
         })
       })
       .catch((error) => {
-        this.writeToChat(error, 'bot');
         console.log(error);
+        this.startTalking(error.substring(0, 50), 'bot');
       });
   }
 

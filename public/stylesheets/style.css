@@ -27,23 +27,22 @@ a:hover {
 	text-align: center;
 }
 
-.hal {
-	width: 500px;
-	height: 500px;
+#hal {
+	width: 400px;
+	height: 400px;
 	display: block;
 	margin: 0 auto;
 	background-image: url(../images/hal.gif);
-	background-size: 100% 100%;
+	background-size: 150% 150%;
 	background-repeat: no-repeat;
+	background-position: center;
 	transition: opacity 1s;
 	opacity: 0.3;
 }
 
-.hal.active {
+#hal.active {
 	opacity: 1.0;
 }
-
-
 
 .chat-wrapper {
 	height: 300px;
@@ -54,7 +53,7 @@ a:hover {
 #chat-box {
 	border: 1px solid #ccc;
 	border-radius: 15px;
-	min-height: 100px;
+	height: 300px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }

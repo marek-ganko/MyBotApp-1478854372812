@@ -42,7 +42,7 @@ class Speak {
       utterance.rate = VOICE_RATE;
 
       utterance.addEventListener('end', () => {
-        console.log('koniec');
+        console.log('Bot finished talking');
         resolve();
       });
 
