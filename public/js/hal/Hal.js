@@ -6,7 +6,7 @@ class Hal {
   }
 
   start() {
-    this.speak.setVoice().then(this.startTalking.bind(this, ));
+    this.speak.setVoice().then(this.startTalking.bind(this));
   }
 
   startTalking() {
